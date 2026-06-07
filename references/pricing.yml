@@ -1,0 +1,61 @@
+# 模型定价参考
+# 单位: USD / 1M tokens
+# 数据来源: 各模型官方定价页面 (2026-06)
+
+deepseek:
+  deepseek-v4-flash:
+    input: 0.14
+    output: 0.28
+    cache_read: 0.028
+    cache_write: 0
+    note: "当前使用的模型" 
+
+  deepseek-chat:
+    input: 0.28
+    output: 0.42
+    cache_read: 0.028
+    cache_write: 0
+
+  deepseek-reasoner:
+    input: 0.28
+    output: 1.10
+    cache_read: 0.028
+    cache_write: 0
+    note: "思考链 token 按输出计费"
+
+openai:
+  gpt-4o:
+    input: 2.50
+    output: 10.00
+    cache_read: 1.25
+
+  gpt-4o-mini:
+    input: 0.15
+    output: 0.60
+    cache_read: 0.075
+
+  o3-mini:
+    input: 1.10
+    output: 4.40
+    cache_read: 0.55
+
+anthropic:
+  claude-sonnet-4:
+    input: 3.00
+    output: 15.00
+    cache_read: 1.50
+    cache_write: 3.75
+    note: "Claude Sonnet 4 有单独的 cache_write 计费"
+
+  claude-opus-4:
+    input: 15.00
+    output: 75.00
+    cache_read: 7.50
+    cache_write: 18.75
+
+# === 默认配置 ===
+defaults:
+  budget_monthly_usd: 7.0
+  budget_monthly_cny: 50.0
+  alert_rate_threshold: 3.0  # 异常速率倍数
+  alert_cache_min: 30        # 最低缓存命中率 (%)
